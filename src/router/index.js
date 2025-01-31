@@ -11,8 +11,8 @@ const router = createRouter({
       children: [
     {
       path: '/',
-      name: 'home',
-      component: () => import('../components/home/Home.vue'),
+      name: 'landing',
+      component: () => import('../components/landing/LandingPage.vue'),
     },
 
   ]

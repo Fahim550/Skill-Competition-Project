@@ -1,8 +1,16 @@
 <script setup>
-import { ref } from 'vue'
 import Menu from 'primevue/menu'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { onMounted, onUnmounted, ref } from 'vue'
 const menu = ref()
 const mobileMenuOpen = ref(false)
+// State for navbar visibility
+const show = ref(true)
+
+// State for last scroll position
+const lastScrollY = ref(0)
+
+
 const Technology = ref([
   {
     label: 'Computer',
@@ -21,12 +29,38 @@ const Technology = ref([
 const toggle = (event) => {
   menu.value.toggle(event)
 }
+
+
+// Function to control navbar visibility based on scroll direction
+const controlNavbar = () => {
+  if (window.scrollY > lastScrollY.value) {
+    show.value = false // Hide navbar on scroll down
+  } else {
+    show.value = true // Show navbar on scroll up
+  }
+  lastScrollY.value = window.scrollY // Update last scroll position
+}
+
+// Function to toggle mobile menu
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
 }
+
+// Add scroll event listener when the component is mounted
+onMounted(() => {
+  window.addEventListener('scroll', controlNavbar)
+})
+
+// Remove scroll event listener when the component is unmounted
+onUnmounted(() => {
+  window.removeEventListener('scroll', controlNavbar)
+})
 </script>
 <template>
-  <div class="flex justify-between items-center w-full relative bg-white shadow-lg px-4 py-2">
+  <div
+  class="flex justify-between items-center w-full fixed top-0 left-0 bg-white shadow-lg px-4 py-2 transition-transform duration-300 ease-in-out"
+  :class="{ '-translate-y-full': !show }"
+  >
     <!-- Logo Section -->
     <div class="flex items-center justify-between lg:justify-around px-4 py-3 w-full">
       <div class="flex gap-2 items-center">
