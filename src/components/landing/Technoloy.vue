@@ -42,7 +42,7 @@ const technologies = [
       class="relative bg-white rounded-lg shadow-lg overflow-hidden group transition ease-linear duration-200 hover:scale-105"
     >
       <!-- Hover Overlay -->
-      <div class="absolute inset-0 bg-red-200 z-0 transform origin-top transition-transform duration-300 scale-y-0 group-hover:scale-y-100"></div>
+      <div class="absolute inset-0 bg-linear-65 from-purple-500 to-pink-500 z-0 transform origin-top transition-transform duration-300 scale-y-0 group-hover:scale-y-100"></div>
 
       <!-- Technology Image -->
       <div class="p-4 flex justify-center items-center h-48 relative z-10">

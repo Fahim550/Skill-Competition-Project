@@ -58,7 +58,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div
-  class="flex justify-between items-center w-full fixed top-0 left-0 bg-white shadow-lg px-4 py-2 transition-transform duration-300 ease-in-out"
+  class="flex justify-between items-center w-full fixed top-0 left-0 bg-white shadow-lg px-4 py-2 transition-transform duration-300 ease-in-out z-100"
   :class="{ '-translate-y-full': !show }"
   >
     <!-- Logo Section -->
@@ -89,7 +89,7 @@ onUnmounted(() => {
           <router-link
             to="/"
             class="before:w-0 hover:before:w-full before:bg-red-800 before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-red-800 transition-all duration-300 before:left-0 cursor-pointer capitalize"
-            @click="toggle"
+            @mouseover="toggle"
             aria-haspopup="true"
             aria-controls="overlay_menu"
           >
