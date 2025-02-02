@@ -1,26 +1,34 @@
 <script setup>
 const achievements = [
   {
-    title: "Best Polytechnic Award",
-    description: "Recognized as the top institute in technical education.",
-    image: "/award-icon.png",
+    title: 'সেরা পলিটেকনিক পুরস্কার',
+    where: 'ন্যাশনাল টেকনিক্যাল এডুকেশন সামিট ২০২৪',
+    description: 'বিশিষ্ট একাডেমিক উৎকর্ষতার জন্য সেরা পলিটেকনিক ইনস্টিটিউট হিসাবে স্বীকৃতি।',
+    date: '১৫ মার্চ, ২০২৪',
+    image: '/award1.jpg',
   },
   {
-    title: "10,000+ Graduates",
-    description: "Empowering students with technical skills for the future.",
-    image: "/graduates-icon.png",
+    title: 'শীর্ষ প্লেসমেন্ট রেকর্ড',
+    where: 'ইন্ডাস্ট্রি পার্টনারশিপ প্রোগ্রাম',
+    description: 'শীর্ষস্থানীয় শিল্প ও কোম্পানিতে ৯৫% শিক্ষার্থীর প্লেসমেন্ট অর্জন।',
+    date: '১০ ডিসেম্বর, ২০২৩',
+    image: '/placement.jpg',
   },
   {
-    title: "95% Placement Rate",
-    description: "Top recruiters hire our skilled students every year.",
-    image: "/placement-icon.png",
+    title: 'উদ্ভাবন ও গবেষণায় শ্রেষ্ঠত্ব',
+    where: 'আন্তর্জাতিক টেক এক্সপো ২০২৩',
+    description: 'নবায়নযোগ্য শক্তি সমাধানের ক্ষেত্রে উদ্ভাবনী গবেষণার জন্য পুরস্কৃত।',
+    date: '৫ আগস্ট, ২০২৩',
+    image: '/research.jpg',
   },
   {
-    title: "50+ Research Projects",
-    description: "Innovative projects making an impact in the industry.",
-    image: "/innovation-icon.png",
+    title: 'সেরা ক্রীড়া দল',
+    where: 'ন্যাশনাল ইন্টার-পলিটেকনিক স্পোর্টস চ্যাম্পিয়নশিপ',
+    description: 'জাতীয় পর্যায়ের পলিটেকনিক ফুটবল চ্যাম্পিয়নশিপে বিজয়ী।',
+    date: '২০ জুন, ২০২৩',
+    image: '/sports.jpg',
   },
-];
+]
 </script>
 
 <template>
@@ -37,11 +45,17 @@ const achievements = [
         <div
           v-for="(achievement, index) in achievements"
           :key="index"
-          class="bg-gray-100 rounded-lg p-6 shadow-lg flex flex-col items-center"
+          class="bg-gray-100 rounded-lg p-6 shadow-lg flex flex-col items-center text-center transform hover:scale-105 transition duration-300"
         >
-          <img :src="achievement.image" :alt="achievement.title" class="w-16 h-16 mb-4" />
+          <img
+            :src="achievement.image"
+            :alt="achievement.title"
+            class="w-24 h-24 mb-4 rounded-lg object-cover shadow-md"
+          />
           <h3 class="text-xl font-bold text-gray-800">{{ achievement.title }}</h3>
+          <p class="text-gray-500 text-sm font-semibold mt-1">{{ achievement.where }}</p>
           <p class="text-gray-600 text-center mt-2">{{ achievement.description }}</p>
+          <span class="mt-3 text-sm text-gray-500 italic">{{ achievement.date }}</span>
         </div>
       </div>
     </div>
